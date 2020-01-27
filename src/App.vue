@@ -2,13 +2,8 @@
   <div class="container">
     <h1 class="text-center mt-5">My app</h1>
 
-    <div class="d-flex justify-content-center mt-5 border border-dark p-5 shadow">
-      <button @click="get" class="btn btn-primary">GET</button>
-      <button @click="save" class="btn btn-success">SAVE</button>
-      <button @click="update" class="btn btn-warning">UPDATE</button>
-      <button @click="remove" class="btn btn-danger">DELETE</button>
-    </div>
-
+    <router-view></router-view>
+    
     <ul class="list-group">
       <li class="list-group-item" v-for="course in courses">
         <strong>  id: {{ course.id }} </strong>
@@ -23,7 +18,15 @@
 
 <script>
   import axios from "axios"
+  import Itens from "./components/ListItem/Itens"
+  import NewItem from './Pages/NewItem'
+
   export default {
+
+    components : {
+      Itens,
+      NewItem
+    },
 
     data() {
       return {
@@ -79,5 +82,11 @@
 </script>
 
 <style>
-
+  html {
+    height: 100% !impostant;
+  }
+  body {
+    background-color: #002436;
+    /*background-image: linear-gradient(to right top, #051937, #002436, #022b2d, #203028, #32342d);*/
+  }
 </style>
