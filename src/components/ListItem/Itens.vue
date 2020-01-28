@@ -6,7 +6,7 @@
           <th>#id</th>
           <th>Titúlo</th>
           <th>Cupom</th>
-          <th>Preço</th>
+          <th>Preço</th>  
           <th>Ações</th>
         </thead>
         <tbody>
@@ -15,6 +15,12 @@
           <Item/>
         </tbody>
       </table>
+      <router-link
+        to="/new"
+        tag="button"
+        class="btn btn-dark text-info float-right">
+        Novo Item
+        </router-link>
     </div>
   </div>
 </template>
