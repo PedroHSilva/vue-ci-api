@@ -19,7 +19,7 @@
         to="/new"
         tag="button"
         class="btn btn-dark text-info float-right">
-        Novo Item
+        Novo Item 
         </router-link>
     </div>
   </div>

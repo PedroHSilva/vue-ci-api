@@ -16,7 +16,13 @@
                     <input type="number" class="form-control" id="price">
                 </div>
                 <div class="button-container">
-                    <button class="btn btn-outline-warning" type="reset">Limpar</button>
+                    <router-link
+                        to="/"
+                        tag="button"
+                        class="btn btn-outline-warning"
+                    >
+                        Back
+                    </router-link>
                     <button type="submit" class="btn btn-outline-primary">Save</button>
                 </div>
             </form>
