@@ -1,5 +1,6 @@
 import Vue from "vue"
 import Vuex from "vuex"
+import Axios from "axios"
 
 Vue.use(Vuex)
 
@@ -19,7 +20,11 @@ const store = new Vuex.Store({
     },
     actions : {
         initApp(context){
-
+            Axios.get("http://thalinutri.com.br/ci/vue-ci/api/get_all_data")
+                .then(response => {
+                    console.log(response.data)
+                    context.commit("initItens", response.data)
+                })
         },
         addItem(context, item){},
         updateItem(context, item){},

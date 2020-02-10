@@ -28,6 +28,10 @@
       NewItem
     },
 
+    created() {
+      this.$store.dispatch("initApp")
+    },
+
     data() {
       return {
         courses : []

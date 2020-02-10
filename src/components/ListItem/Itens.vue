@@ -10,9 +10,7 @@
           <th>Ações</th>
         </thead>
         <tbody>
-          <Item/>
-          <Item/>
-          <Item/>
+          <Item v-for="item in itens" :key="item.id" :item="item" />
         </tbody>
       </table>
       <router-link
@@ -29,7 +27,14 @@
 import Item from "./Item";
 export default {
   components: {
-    Item: Item
+    Item
+  },
+
+  computed: {
+    itens() {
+      return this.$store.getters.getItens
+    }
   }
+
 };
 </script>
