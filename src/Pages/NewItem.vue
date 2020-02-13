@@ -1,18 +1,18 @@
 <template>
     <div class="row">
         <div class="col-md-6 offset-3">
-            <form class="card mt-5 p-3 border border-dark bg-dark shadow-lg">
+            <form @submit.prevent="onSubmit" class="card mt-5 p-3 border border-dark bg-dark shadow-lg">
                 <div class="form-group">
                     <label class="text-light" for="title">Title</label>
-                    <input type="text" class="form-control" id="title" aria-describedby="title">                    
+                    <input v-model="item.title" type="text" class="form-control" id="title" aria-describedby="title">                    
                 </div>
                 <div class="form-group">
                     <label class="text-light" for="couponCode">Coupon</label>
-                    <input type="text" class="form-control" id="couponCode">
+                    <input v-model="item.couponCode" type="text" class="form-control" id="couponCode">
                 </div>
                 <div class="form-group">
                     <label class="text-light" for="price">Price</label>
-                    <input type="number" class="form-control" id="price">
+                    <input v-model="item.price" type="number" class="form-control" id="price">
                 </div>
                 <div class="button-container">
                     <router-link
@@ -28,3 +28,25 @@
         </div>
     </div>
 </template>
+
+<script>
+
+    export default {
+        data() {
+            return {
+                item : {
+                    title:'',
+                    couponCode: '',
+                    price: 0.0
+                }
+            }
+        },
+
+        methods: {
+            onSubmit() {
+                this.$store.dispatch("addItem", this.item);
+            }
+        }
+    }
+
+</script>

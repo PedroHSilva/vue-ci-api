@@ -12,8 +12,8 @@ const store = new Vuex.Store({
         initItens(state, itens){
             state.itens = itens
         },
-        addItem(){
-            state.itens.push(itens)
+        addItem(state, item){
+            state.itens.push(item)
         },
         updateIten() {state, itens},
         deleteIten(state, itens){}
@@ -26,7 +26,9 @@ const store = new Vuex.Store({
                     context.commit("initItens", response.data)
                 })
         },
-        addItem(context, item){},
+        addItem(context, item){
+            context.commit("addItem", item)
+        },
         updateItem(context, item){},
         deleteItem(context, item){}
 
