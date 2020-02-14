@@ -1,19 +1,24 @@
 <template>
     <div class="row">
         <div class="col-md-6 offset-3">
-            <form class="card mt-5 p-3 border border-dark bg-dark shadow-lg">
-                <h1 class="text-light">Atualizar</h1>
+            <form @submit.prevent="onSubmit" class="card mt-5 p-3 border border-dark bg-dark shadow-lg">
+
+                <h1>Atualizar {{ item.title }}</h1>
+
                 <div class="form-group">
                     <label class="text-light" for="title">Title</label>
-                    <input type="text" class="form-control" id="title" aria-describedby="title">                    
+                    <input v-model="item.title" type="text" class="form-control" id="title" aria-describedby="title">                    
                 </div>
+
+                {{ item.title }}
+
                 <div class="form-group">
                     <label class="text-light" for="couponCode">Coupon</label>
-                    <input type="text" class="form-control" id="couponCode">
+                    <input v-model="item.couponCode" type="text" class="form-control" id="couponCode">
                 </div>
                 <div class="form-group">
                     <label class="text-light" for="price">Price</label>
-                    <input type="number" class="form-control" id="price">
+                    <input v-model="item.price" type="number" class="form-control" id="price">
                 </div>
                 <div class="button-container">
                     <router-link
@@ -29,3 +34,29 @@
         </div>
     </div>
 </template>
+
+<script>
+
+    export default {
+        data() {
+            return {
+                item : {
+                    title:'',
+                    couponCode: '',
+                    price: 0.0
+                }
+            }
+        },
+
+        methods: {
+            onSubmit() {
+                this.$store.dispatch("updateItem", this.item);
+            }
+        },
+
+        created() {
+            this.item = this.$route.params.item
+        }
+    }
+
+</script>

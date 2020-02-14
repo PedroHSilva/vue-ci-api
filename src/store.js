@@ -15,8 +15,18 @@ const store = new Vuex.Store({
         addItem(state, item){
             state.itens.push(item)
         },
-        updateIten() {state, itens},
-        deleteIten(state, itens){}
+        updateItem(state, item) {
+            let index = state.itens.findIndex(c => c.id == item.id)
+            if(index >= 0) {
+                state.itens[index] = item
+            }
+        },
+        deleteItem(state, itemId){
+            let index = state.itens.findIndex(c => c.id == itemId)
+            if(index >= 0) {
+                state.itens.splice(index, 1)
+            }
+        }
     },
     actions : {
         initApp(context){
@@ -29,8 +39,12 @@ const store = new Vuex.Store({
         addItem(context, item){
             context.commit("addItem", item)
         },
-        updateItem(context, item){},
-        deleteItem(context, item){}
+        updateItem(context, item){
+            context.commit("updateItem", item)
+        },
+        deleteItem(context, itemId){
+            context.commit("deleteItem", itemId)
+        }
 
     },
     getters : {

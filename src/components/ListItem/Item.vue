@@ -5,8 +5,14 @@
     <td>{{ item.couponCode }}</td>
     <td>{{ item.price }}</td>
     <td>
-      <button class="btn btn-sm btn-outline-danger">Apagar</button>
-      <button class="btn btn-sm btn-outline-warning">Editar</button>
+      <button @click="$store.dispatch('deleteItem', item.id)" class="btn btn-sm btn-outline-danger">Apagar</button>
+      <router-link
+        :to="{ name: 'updateItem', params: {item: item}}"
+        tag="button"
+        class="btn btn-sm btn-outline-warning"
+      >
+        Editar
+      </router-link>
     </td>
   </tr>
 </template>

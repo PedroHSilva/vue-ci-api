@@ -10,7 +10,7 @@ export const router = new VueRouter({
     routes : [
         { path : "/", component: Itens },
         { path : "/new", component: newItem },
-        { path : "/update", component: updateItem },
+        { name: "updateItem", path : "/update", component: updateItem },
         { path : "*", redirect : "/" }
     ],
     mode : "history"

@@ -18,7 +18,7 @@
         tag="button"
         class="btn btn-dark text-info float-right">
         Novo Item 
-        </router-link>
+      </router-link>
     </div>
   </div>
 </template>

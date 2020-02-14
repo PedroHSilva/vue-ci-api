@@ -6,6 +6,9 @@
                     <label class="text-light" for="title">Title</label>
                     <input v-model="item.title" type="text" class="form-control" id="title" aria-describedby="title">                    
                 </div>
+
+                {{item.title}}
+
                 <div class="form-group">
                     <label class="text-light" for="couponCode">Coupon</label>
                     <input v-model="item.couponCode" type="text" class="form-control" id="couponCode">
