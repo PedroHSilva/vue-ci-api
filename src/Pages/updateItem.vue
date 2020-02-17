@@ -50,7 +50,10 @@
 
         methods: {
             onSubmit() {
-                this.$store.dispatch("updateItem", this.item);
+                this.$store.dispatch("updateItem", this.item)
+                    .then(()=>{
+                        this.$router.push("/")
+                    })
             }
         },
 

@@ -37,13 +37,23 @@ const store = new Vuex.Store({
                 })
         },
         addItem(context, item){
-            context.commit("addItem", item)
+            Axios.post("http://thalinutri.com.br/ci/vue-ci/api/save", JSON.stringify(item))
+                .then(response => {
+                    context.commit("addItem", {id: response.data.insert_id, ...item})    
+                })
+            
         },
         updateItem(context, item){
-            context.commit("updateItem", item)
+            Axios.post("http://thalinutri.com.br/ci/vue-ci/api/update", JSON.stringify(item))
+                .then(response => {
+                    context.commit("updateItem", item)    
+                })
         },
         deleteItem(context, itemId){
-            context.commit("deleteItem", itemId)
+            Axios.post("http://thalinutri.com.br/ci/vue-ci/api/delete", JSON.stringify({ id: itemId }))
+                .then(response => {
+                    context.commit("deleteItem", itemId)
+                })
         }
 
     },

@@ -3,7 +3,7 @@
     <td>{{ item.id }}</td>
     <td>{{ item.title }}</td>
     <td>{{ item.couponCode }}</td>
-    <td>{{ item.price }}</td>
+    <td>{{ item.price }} R$</td>
     <td>
       <button @click="$store.dispatch('deleteItem', item.id)" class="btn btn-sm btn-outline-danger">Apagar</button>
       <router-link

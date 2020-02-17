@@ -47,7 +47,11 @@
 
         methods: {
             onSubmit() {
-                this.$store.dispatch("addItem", this.item);
+                this.$store.dispatch("addItem", this.item)
+                    .then(()=>{
+                        this.$router.push("/")
+                    })
+                
             }
         }
     }
